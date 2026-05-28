@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: carbonflow-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt && python manage.py migrate"
+    startCommand: "gunicorn carbonflow.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: carbonflow-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ALLOW_ALL_ORIGINS
+        value: "True"
+
+databases:
+  - name: carbonflow-db
+    databaseName: carbonflow
+    user: carbonflow_user

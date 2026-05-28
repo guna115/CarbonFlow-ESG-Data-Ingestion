@@ -1,0 +1,5 @@
+Datum,PlantCode,Kraftstoffart,Menge,Einheit
+15.01.2024,P001,diesel,1500,L
+20.01.2024,P002,petrol,850.5,Gallons
+12.02.2024,P001,diesel,-100,L
+28.02.2024,P003,unknown_fuel,400,L

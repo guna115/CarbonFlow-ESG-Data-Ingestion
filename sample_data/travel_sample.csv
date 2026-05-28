@@ -1,0 +1,4 @@
+BookingID,Category,OriginIATA,DestinationIATA,StartDate,EndDate,Nights
+TRV-01,Flight,SFO,JFK,2024-03-01,2024-03-01,
+TRV-02,Hotel,,,2024-03-01,2024-03-05,4
+TRV-03,Flight,LHR,DXB,2024-03-10,,

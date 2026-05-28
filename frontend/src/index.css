@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10B981; /* Emerald 500 */
+  --color-primary-dark: #059669; /* Emerald 600 */
+  --color-bg-dark: #0f172a;
+  --color-surface-dark: #1e293b;
+  --color-border-dark: #334155;
+  --color-text-dark: #f8fafc;
+  --color-text-muted: #94a3b8;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
