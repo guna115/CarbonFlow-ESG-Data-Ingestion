@@ -11,14 +11,16 @@ export default function ReviewPage() {
   const { data: records, isLoading } = useQuery({
     queryKey: ['records', filter],
     queryFn: async () => {
-      const res = await axios.get(`http://127.0.0.1:8000/api/emissions/records/?status=${filter === 'ALL' ? '' : filter}`)
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+      const res = await axios.get(`${apiUrl}/api/emissions/records/?status=${filter === 'ALL' ? '' : filter}`)
       return res.data
     }
   })
 
   const reviewMutation = useMutation({
     mutationFn: async ({ id, action }: { id: number, action: 'APPROVE' | 'REJECT' }) => {
-      const res = await axios.post(`http://127.0.0.1:8000/api/emissions/records/${id}/review/`, { action })
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+      const res = await axios.post(`${apiUrl}/api/emissions/records/${id}/review/`, { action })
       return res.data
     },
     onSuccess: () => {

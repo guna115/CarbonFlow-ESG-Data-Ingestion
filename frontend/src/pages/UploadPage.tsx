@@ -31,7 +31,8 @@ export default function UploadPage() {
     formData.append('tenant_id', '1') // Hardcoded for prototype
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/ingestion/upload/', formData, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+      const response = await axios.post(`${apiUrl}/api/ingestion/upload/`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       setResult({ success: true, message: response.data.message, rows: response.data.rows_processed })
